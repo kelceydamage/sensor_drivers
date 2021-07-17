@@ -25,6 +25,14 @@ class DigitalAmbiantLightSensor(object):
     def i2c_address(self):
         return self.__i2c_address
 
+    def begin(self):
+        status = self.__i2c.writeRaw8(COMMAND_ALS)
+        print(status)
+        data = self.__i2c.readRaw8()
+        data |= int(self.__i2c.readRaw8()) << 8
+        print(data)
+        print(self.__dict__)
+
     def get(self):
        self.__receive_data(COMMAND_ALS)
        #self.__scale_lux()

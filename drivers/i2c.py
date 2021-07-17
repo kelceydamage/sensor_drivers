@@ -12,7 +12,10 @@ class I2CClient(object):
         self.txbufferlength = 0
 
     def end_transmission(self):
-        pass
+        return_value = self.__twi_write_to()
+        self.txbufferindex = 0
+        self.txbufferlength = 0
+        self.transmitting = 1
 
     def request_from(self, i2c_address, arg):
         pass
@@ -23,8 +26,11 @@ class I2CClient(object):
     def read(self):
         pass
 
+    def __twi_write_to(self):
+        if 
 
 
+"""
 receiveData(uint8_t command, uint32_t& data)
 {
   Wire.beginTransmission(I2C_ADDRESS);
@@ -41,3 +47,4 @@ receiveData(uint8_t command, uint32_t& data)
   data |= uint32_t(Wire.read()) << 8;
   return STATUS_OK;
 }
+"""

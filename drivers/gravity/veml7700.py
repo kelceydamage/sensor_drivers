@@ -12,10 +12,10 @@ class DigitalAmbiantLightSensor(object):
         lux (float): Value from sensor.
     """
 
-    def __init__(self, i2c_client):
+    def __init__(self, i2c_client, i2c_bus_number):
         self.__lux = 0.0
         self.__i2c_address = I2C_ADDRESS
-        self.__i2c = i2c_client(I2C_ADDRESS)
+        self.__i2c = i2c_client(I2C_ADDRESS, i2c_bus_number)
 
     @property
     def lux(self):
